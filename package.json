@@ -1,0 +1,61 @@
+{
+  "name": "@ryftpay/ryft-sdk",
+  "version": "0.0.9",
+  "description": "The official Ryft NodeJs SDK",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "declaration": true,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "gen-version": "node -p \"'export const SDK_VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
+    "gen-name": "node -p \"'export const SDK_NAME = ' + JSON.stringify(require('./package.json').name) + ';'\" > src/name.ts",
+    "setup": "npm run gen-version && npm run gen-name",
+    "prebuild": "npm run setup",
+    "build": "npx tsc",
+    "bundle": "npm run setup && npx tsup src",
+    "lint": "npm run setup && npx eslint .",
+    "test": "npm run setup && npx jest ./test",
+    "fmt": "npm run setup && npx prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  },
+  "keywords": [
+    "ryft",
+    "sdk",
+    "nodejs",
+    "api",
+    "payments"
+  ],
+  "homepage": "https://ryftpay.com",
+  "author": "Ryft <tech@ryftpay.com> (https://ryftpay.com)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyftPay/ryft-node.git"
+  },
+  "bugs": "https://github.com/RyftPay/ryft-node/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.*"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.26.0",
+    "@eslint/js": "^9.20.0",
+    "@jest/globals": "^29.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  }
+}

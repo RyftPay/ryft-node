@@ -1,0 +1,33 @@
+export type WebhookEventType =
+    "PaymentSession.approved" |
+    "PaymentSession.captured" |
+    "PaymentSession.declined" |
+    "PaymentSession.voided" |
+    "PaymentSession.void_failed" |
+    "PaymentSession.refunded" |
+    "PaymentSession.refund_failed" |
+    "PaymentSession.requires_action" |
+    "Account.created" |
+    "Account.updated" |
+    "Account.verification_status_updated" |
+    "Person.created" |
+    "Person.updated" |
+    "Person.deleted" |
+    "PayoutMethod.created" |
+    "PayoutMethod.updated" |
+    "PayoutMethod.deleted" |
+    "Payout.created" |
+    "Payout.status_updated" |
+    "Customer.created" |
+    "Customer.updated" |
+    "Customer.deleted" |
+    "Subscription.created" |
+    "Subscription.updated" |
+    "Subscription.cancelled" |
+    "Subscription.past_due" |
+    "Subscription.ended" |
+    "Transfer.created" |
+    "Transfer.updated" |
+    "Dispute.created" |
+    "Dispute.closed" |
+    "Dispute.challenged"
