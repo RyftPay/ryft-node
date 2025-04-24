@@ -1,6 +1,6 @@
 {
   "name": "@ryftpay/ryft-sdk",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "The official Ryft NodeJs SDK",
   "type": "module",
   "main": "dist/index.cjs",
