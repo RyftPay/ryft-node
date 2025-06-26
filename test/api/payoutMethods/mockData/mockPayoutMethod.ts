@@ -5,7 +5,7 @@ export const mockPayoutMethod = {
     "status": "Valid",
     "invalidReason": "string",
     "currency": "GBP",
-    "country": "GB",
+    "countryCode": "GB",
     "bankAccount": {
         "bankIdType": "SortCode",
         "bankId": "string",
