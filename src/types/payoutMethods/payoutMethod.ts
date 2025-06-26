@@ -10,7 +10,7 @@ export interface PayoutMethod {
     type: string;
     displayName?: string | null | undefined;
     currency: string;
-    country: string;
+    countryCode: string;
     bankAccount: {
         bankIdType: string;
         bankId?: string | null | undefined;
