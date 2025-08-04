@@ -1,0 +1,101 @@
+name: Bug report
+description: Report a bug or issue
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "#### Thanks for reporting the issue. Please provide all the required information to help us understand and resolve the issue."
+
+  - type: input
+    id: description
+    attributes:
+      label: "Description"
+      description: "Provide a summary of the issue."
+      placeholder: "Example: Customers API returns invalid value in field X..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: "Steps to reproduce"
+      description: "List necessary steps to help us reproduce the issue."
+      placeholder: |
+        1. Install the Ryft NodeJS package'...'
+        2. Create '...'
+        3. Instantiate an instance of the API client '...'
+        4. Run '...'
+        5. Observe the error '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual behavior"
+      description: "Describe what happened in detail - the error or unexpected behaviour you see."
+      placeholder: "Example: The API client returned an exception when attempting to parse the response"
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected behavior"
+      description: "Describe what you expected to happen."
+      placeholder: "Example: The API client should have returned a successful response"
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-snippet
+    attributes:
+      label: "Code snippet or screenshots (if applicable)"
+      description: "Provide one or more code snippets or screenshots to help explain the issue"
+      placeholder: "```ts\n// Your code here\n```"
+
+  - type: input
+    id: sdk-version
+    attributes:
+      label: "Ryft NodeJS SDK version"
+      description: "Specify the version of the SDK you're using."
+      placeholder: "Example: 1.0.2"
+    validations:
+      required: true
+
+  - type: input
+    id: npm-version
+    attributes:
+      label: "npm version"
+      description: "Specify the npm version you're using."
+      placeholder: "Example: 11.4.2"
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: "npm version"
+      description: "Specify the node version you're using."
+      placeholder: "Example: v24.4.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: "Operating System"
+      description: "Select your operating system."
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional context"
+      description: "Provide any other relevant details."
+      placeholder: "Example: This issue started after updating to node 24"
