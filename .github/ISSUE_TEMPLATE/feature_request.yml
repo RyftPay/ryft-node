@@ -1,0 +1,45 @@
+name: Feature request
+description: Request a new feature or improvement
+title: "[Feature]: "
+labels: ["Feature"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for taking the time to submit a feature request!
+        
+        We kindly ask that you search to
+        see if an issue [already exists](https://github.com/RyftPay/ryft-node/issues?q=is%3Aissue+sort%3Acreated-desc+)
+        for your feature before submitting.
+        
+        We also accept contributions, please see our
+        [contributing guidelines][https://github.com/RyftPay/ryft-node/CONTRIBUTING.md] for further details.
+
+  - type: input
+    id: feature-summary
+    attributes:
+      label: "Feature summary"
+      description: "Provide a short description of the feature request."
+      placeholder: "Example: Add support for terminal APIs"
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "Proposed solution"
+      description: "Describe how you want this feature to work."
+      placeholder: "Example: Add new API clients for missing APIs"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives considered"
+      description: "Describe any alternative solutions you've explored."
+      placeholder: "Example: ..."
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional context"
+      description: "Provide any extra details, references, or screenshots."
