@@ -1,6 +1,8 @@
 # Ryft Node SDK
 
 [![build](https://github.com/RyftPay/ryft-node/actions/workflows/ts.yml/badge.svg)](https://github.com/RyftPay/ryft-node/actions/workflows/ts.yml)
+[![npm version](https://badge.fury.io/js/@ryftpay%2Fryft-sdk.svg)](https://badge.fury.io/js/@ryftpay%2Fryft-sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Installation
 
