@@ -13,7 +13,7 @@ export interface CreatePaymentSessionRequest {
         mobilePhoneNumber?: string;
         metadata?: Record<string, string>;
     };
-    platformFeee?: number;
+    platformFee?: number;
     splits?: SplitPaymentRequest;
     captureFlow?: string;
     paymentType: string;
