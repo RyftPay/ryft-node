@@ -60,7 +60,7 @@ export interface AttemptPaymentSessionRequest {
         number: string;
         expiryMonth: string;
         expiryYear: string;
-        cvc: string;
+        cvc?: string;
         name?: string;
     };
     walletDetails?: {
