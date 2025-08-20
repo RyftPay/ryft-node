@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+This release includes the following:
+ - `cvc` can now be optional for MOTO payments
+
 ## 1.1.0
 
 This release includes the following:
