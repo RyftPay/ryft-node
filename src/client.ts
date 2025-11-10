@@ -7,6 +7,11 @@ import { CustomersClient } from './api/customers'
 import { DisputesClient } from './api/disputes'
 import { EventsClient } from './api/events'
 import { FilesClient } from './api/files'
+import { InPersonLocationsClient } from './api/inPersonLocations'
+import { InPersonOrdersClient } from './api/inPersonOrders'
+import { InPersonProductsClient } from './api/inPersonProducts'
+import { InPersonSkusClient } from './api/inPersonSkus'
+import { InPersonTerminalsClient } from './api/inPersonTerminals'
 import { PaymentMethodsClient } from './api/paymentMethods'
 import { PaymentSessionsClient } from './api/paymentSessions'
 import { PayoutMethodsClient } from './api/payoutMethods'
@@ -32,6 +37,11 @@ export class Ryft {
   public readonly disputes: DisputesClient
   public readonly events: EventsClient
   public readonly files: FilesClient
+  public readonly inPersonLocations: InPersonLocationsClient
+  public readonly inPersonOrders: InPersonOrdersClient
+  public readonly inPersonProducts: InPersonProductsClient
+  public readonly inPersonSkus: InPersonSkusClient
+  public readonly inPersonTerminals: InPersonTerminalsClient
   public readonly paymentMethods: PaymentMethodsClient
   public readonly payouts: PayoutsClient
   public readonly paymentSessions: PaymentSessionsClient
@@ -67,6 +77,20 @@ export class Ryft {
     this.disputes = new DisputesClient(this.secretKey, this.baseUrl)
     this.events = new EventsClient(this.secretKey, this.baseUrl)
     this.files = new FilesClient(this.secretKey, this.baseUrl)
+    this.inPersonLocations = new InPersonLocationsClient(
+      this.secretKey,
+      this.baseUrl,
+    )
+    this.inPersonOrders = new InPersonOrdersClient(this.secretKey, this.baseUrl)
+    this.inPersonProducts = new InPersonProductsClient(
+      this.secretKey,
+      this.baseUrl,
+    )
+    this.inPersonSkus = new InPersonSkusClient(this.secretKey, this.baseUrl)
+    this.inPersonTerminals = new InPersonTerminalsClient(
+      this.secretKey,
+      this.baseUrl,
+    )
     this.paymentMethods = new PaymentMethodsClient(this.secretKey, this.baseUrl)
     this.paymentSessions = new PaymentSessionsClient(
       this.secretKey,
