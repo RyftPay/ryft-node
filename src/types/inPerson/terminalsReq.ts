@@ -32,8 +32,8 @@ export interface TerminalPaymentRequest {
 export interface TerminalRefundRequest {
   paymentSession: {
     id: string;
-    amount?: number;
   };
+  amount?: number;
   refundPlatformFee?: boolean;
   settings?: TerminalTransactionSettings;
 }

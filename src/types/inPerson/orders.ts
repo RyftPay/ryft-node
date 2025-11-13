@@ -1,23 +1,51 @@
 export interface InPersonOrderItem {
-  skuId: string;
+  id: string;
+  name: string;
+  totalAmountPerUnit: number;
+  taxAmountPerUnit: number;
   quantity: number;
 }
 
-export interface InPersonOrderShipping {
-  address: {
-    lineOne: string;
-    lineTwo?: string;
-    city: string;
-    country: string;
-    postalCode: string;
-  };
+export interface InPersonOrderShippingAddress {
+  businessName?: string;
+  firstName: string;
+  lastName: string;
+  lineOne: string;
+  lineTwo?: string;
+  city: string;
+  country: string;
+  postalCode: string;
+  region?: string;
+  deliveryInstructions?: string;
+}
+
+export interface InPersonOrderShippingContact {
+  email: string;
+  mobilePhoneNumber: string;
+}
+
+export interface InPersonOrderShippingMethod {
+  id: string;
   name: string;
+  description: string;
+  totalAmount: number;
+  taxAmount: number;
+}
+
+export interface InPersonOrderShipping {
+  address: InPersonOrderShippingAddress | null;
+  contact: InPersonOrderShippingContact | null;
+  method: InPersonOrderShippingMethod | null;
+}
+
+export interface InPersonOrderTrackingItem {
+  carrier: string;
+  reference: string;
+  shippedTimestamp: number;
 }
 
 export interface InPersonOrderTracking {
-  carrier?: string;
-  trackingNumber?: string;
-  status?: string;
+  items: InPersonOrderTrackingItem[];
 }
 
 export interface InPersonOrder {
@@ -28,7 +56,7 @@ export interface InPersonOrder {
   currency: string;
   items: InPersonOrderItem[];
   shipping: InPersonOrderShipping | null;
-  tracking: InPersonOrderTracking;
+  tracking?: InPersonOrderTracking;
   metadata?: Record<string, string>;
   createdTimestamp: number;
   lastUpdatedTimestamp: number;

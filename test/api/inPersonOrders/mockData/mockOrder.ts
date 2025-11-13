@@ -8,23 +8,46 @@ export const mockOrder: InPersonOrder = {
   currency: 'GBP',
   items: [
     {
-      skuId: 'ipsku_01J8HRF1FBEGYFFXNJMRZ704R6',
+      id: 'ipsku_01J8HRF1FBEGYFFXNJMRZ704R6',
+      name: 'Pax A920 Pro',
+      totalAmountPerUnit: 29900,
+      taxAmountPerUnit: 4983,
       quantity: 1,
     },
   ],
   shipping: {
     address: {
+      businessName: 'Acme Corp',
+      firstName: 'John',
+      lastName: 'Doe',
       lineOne: '123 High Street',
+      lineTwo: 'Floor 2',
       city: 'London',
       country: 'GB',
       postalCode: 'SW1A 1AA',
+      region: 'Greater London',
+      deliveryInstructions: 'Please ring the bell twice',
     },
-    name: 'John Doe',
+    contact: {
+      email: 'john.doe@example.com',
+      mobilePhoneNumber: '+447900000000',
+    },
+    method: {
+      id: 'ipsm_01J8HRF1FBEGYFFXNJMRZ704R6',
+      name: 'Standard Delivery',
+      description: 'Delivery within 3-5 business days',
+      totalAmount: 500,
+      taxAmount: 83,
+    },
   },
   tracking: {
-    carrier: 'Royal Mail',
-    trackingNumber: 'RM123456789GB',
-    status: 'In Transit',
+    items: [
+      {
+        carrier: 'Royal Mail',
+        reference: 'RM123456789GB',
+        shippedTimestamp: 1672617600,
+      },
+    ],
   },
   metadata: {
     orderId: 'ORDER-123',

@@ -3,15 +3,43 @@ export interface TerminalLocation {
 }
 
 export interface TerminalDevice {
+  type: string;
   serialNumber: string;
-  model?: string;
-  status?: string;
+}
+
+export type TerminalActionType = 'Transaction';
+
+export type TerminalActionStatus = 'InProgress' | 'Cancelled' | 'Failed' | 'Succeeded';
+
+export interface TerminalActionAmounts {
+  requested: number;
+}
+
+export interface TerminalActionTransactionSettings {
+  receiptPrintingSource?: 'Terminal' | 'PointOfSale';
+}
+
+export interface TerminalActionError {
+  code: string;
+  settings?: TerminalActionTransactionSettings;
+}
+
+export interface TerminalActionTransaction {
+  type: 'Payment' | 'Refund';
+  paymentSessionId: string;
+  amounts: TerminalActionAmounts;
+  currency: string;
+  settings?: TerminalActionTransactionSettings;
 }
 
 export interface TerminalAction {
-  type?: string;
-  status?: string;
+  type: TerminalActionType;
+  status: TerminalActionStatus;
+  id: string;
+  error?: TerminalActionError | null;
+  transaction?: TerminalActionTransaction | null;
   createdTimestamp?: number;
+  completedTimestamp?: number;
 }
 
 export interface Terminal {

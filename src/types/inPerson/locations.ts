@@ -4,6 +4,7 @@ export interface InPersonLocationAddress {
   city: string;
   country: string;
   postalCode: string;
+  region?: string;
 }
 
 export interface InPersonLocationGeoCoordinates {

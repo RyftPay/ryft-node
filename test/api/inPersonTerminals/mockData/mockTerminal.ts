@@ -7,13 +7,13 @@ export const mockTerminal: Terminal = {
     id: 'iploc_01J8HRF1FBEGYFFXNJMRZ704R6',
   },
   device: {
+    type: 'Wise POS E',
     serialNumber: 'SN123456789',
-    model: 'Wise POS E',
-    status: 'Online',
   },
   action: {
-    type: 'Payment',
+    type: 'Transaction',
     status: 'InProgress',
+    id: 'tmlact_01J8HRF1FBEGYFFXNJMRZ704R6',
     createdTimestamp: 1672531200,
   },
   metadata: {
