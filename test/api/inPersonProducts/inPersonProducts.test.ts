@@ -59,22 +59,14 @@ describe('inPersonProducts', () => {
       );
 
       const client = new Ryft({ secretKey: mockSecretKey });
-      const result = await client.inPersonProducts.list(
-        true,
-        25,
-        'token456',
-        'acc_123',
-      );
+      const result = await client.inPersonProducts.list(true, 25, 'token456');
 
       expect(result).toEqual(mockResponse);
       expect(global.fetch).toHaveBeenCalledWith(
         'https://sandbox-api.ryftpay.com/v1/in-person/products?ascending=true&limit=25&startsAfter=token456',
         {
           method: 'GET',
-          headers: {
-            ...defaultHeaders,
-            Account: 'acc_123',
-          },
+          headers: defaultHeaders,
           body: undefined,
         },
       );
@@ -113,35 +105,6 @@ describe('inPersonProducts', () => {
         {
           method: 'GET',
           headers: defaultHeaders,
-          body: undefined,
-        },
-      );
-    });
-
-    test('success with account parameter', async () => {
-      mockedFetch.mockImplementation(async () =>
-        Promise.resolve({
-          json: async () => mockProduct,
-          ok: true,
-          status: 200,
-        } as Response),
-      );
-
-      const client = new Ryft({ secretKey: mockSecretKey });
-      const result = await client.inPersonProducts.get(
-        mockProduct.id,
-        'acc_123',
-      );
-
-      expect(result).toEqual(mockProduct);
-      expect(global.fetch).toHaveBeenCalledWith(
-        `https://sandbox-api.ryftpay.com/v1/in-person/products/${mockProduct.id}`,
-        {
-          method: 'GET',
-          headers: {
-            ...defaultHeaders,
-            Account: 'acc_123',
-          },
           body: undefined,
         },
       );

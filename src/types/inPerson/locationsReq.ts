@@ -6,11 +6,11 @@ import {
 export interface CreateInPersonLocationRequest {
   name: string;
   address: InPersonLocationAddress;
-  geoCoordinates?: InPersonLocationGeoCoordinates;
-  metadata?: Record<string, string>;
+  geoCoordinates?: InPersonLocationGeoCoordinates | null | undefined;
+  metadata?: Record<string, string> | null | undefined;
 }
 
 export interface UpdateInPersonLocationRequest {
-  name?: string;
-  metadata?: Record<string, string>;
+  name?: string | null | undefined;
+  metadata?: Record<string, string> | null | undefined;
 }

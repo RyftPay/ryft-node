@@ -10,7 +10,7 @@ import { makeRequest } from '../utils/http';
 
 /**
  * Manage in-person terminals for terminal payments
- * Docs: https://api-reference.ryftpay.com
+ * Docs: https://api-reference.ryftpay.com/#tag/In-Person-Terminals
  */
 export class InPersonTerminalsClient {
   private readonly path = '/in-person/terminals';

@@ -64,7 +64,6 @@ describe('inPersonSkus', () => {
         25,
         'token456',
         'ippd_123',
-        'acc_123',
       );
 
       expect(result).toEqual(mockResponse);
@@ -72,10 +71,7 @@ describe('inPersonSkus', () => {
         'https://sandbox-api.ryftpay.com/v1/in-person/skus?country=GB&limit=25&startsAfter=token456&productId=ippd_123',
         {
           method: 'GET',
-          headers: {
-            ...defaultHeaders,
-            Account: 'acc_123',
-          },
+          headers: defaultHeaders,
           body: undefined,
         },
       );
@@ -114,32 +110,6 @@ describe('inPersonSkus', () => {
         {
           method: 'GET',
           headers: defaultHeaders,
-          body: undefined,
-        },
-      );
-    });
-
-    test('success with account parameter', async () => {
-      mockedFetch.mockImplementation(async () =>
-        Promise.resolve({
-          json: async () => mockSku,
-          ok: true,
-          status: 200,
-        } as Response),
-      );
-
-      const client = new Ryft({ secretKey: mockSecretKey });
-      const result = await client.inPersonSkus.get(mockSku.id, 'acc_123');
-
-      expect(result).toEqual(mockSku);
-      expect(global.fetch).toHaveBeenCalledWith(
-        `https://sandbox-api.ryftpay.com/v1/in-person/skus/${mockSku.id}`,
-        {
-          method: 'GET',
-          headers: {
-            ...defaultHeaders,
-            Account: 'acc_123',
-          },
           body: undefined,
         },
       );

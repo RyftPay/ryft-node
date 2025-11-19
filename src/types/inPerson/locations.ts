@@ -1,10 +1,10 @@
 export interface InPersonLocationAddress {
   lineOne: string;
-  lineTwo?: string;
+  lineTwo?: string | null | undefined;
   city: string;
   country: string;
   postalCode: string;
-  region?: string;
+  region?: string | null | undefined;
 }
 
 export interface InPersonLocationGeoCoordinates {
@@ -16,15 +16,15 @@ export interface InPersonLocation {
   id: string;
   name: string;
   address: InPersonLocationAddress;
-  geoCoordinates: InPersonLocationGeoCoordinates | null;
-  metadata?: Record<string, string>;
+  geoCoordinates?: InPersonLocationGeoCoordinates | null | undefined;
+  metadata?: Record<string, string> | null | undefined;
   createdTimestamp: number;
   lastUpdatedTimestamp: number;
 }
 
 export interface InPersonLocations {
   items: InPersonLocation[];
-  paginationToken?: string;
+  paginationToken?: string | null | undefined;
 }
 
 export interface InPersonLocationDeleted {

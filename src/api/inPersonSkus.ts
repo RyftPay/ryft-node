@@ -6,7 +6,7 @@ import { makeRequest } from '../utils/http';
 
 /**
  * Manage in-person product SKUs for terminal payments
- * Docs: https://api-reference.ryftpay.com
+ * Docs: https://api-reference.ryftpay.com/#tag/In-Person-SKUs
  */
 export class InPersonSkusClient {
   private readonly path = '/in-person/skus';
@@ -21,7 +21,6 @@ export class InPersonSkusClient {
     limit?: number,
     startsAfter?: string,
     productId?: string,
-    account?: string,
   ): Promise<InPersonProductSkus> {
     return makeRequest({
       path: this.path,
@@ -34,17 +33,15 @@ export class InPersonSkusClient {
         startsAfter,
         productId,
       },
-      ...(account && { extraHeaders: { Account: account } }),
     });
   }
 
-  async get(id: string, account?: string): Promise<InPersonProductSku> {
+  async get(id: string): Promise<InPersonProductSku> {
     return makeRequest({
       path: `${this.path}/${id}`,
       method: 'GET',
       secretKey: this.secretKey,
       baseUrl: this.baseUrl,
-      ...(account && { extraHeaders: { Account: account } }),
     });
   }
 }

@@ -10,5 +10,5 @@ export interface InPersonProduct {
 
 export interface InPersonProducts {
   items: InPersonProduct[];
-  paginationToken?: string;
+  paginationToken?: string | null | undefined;
 }

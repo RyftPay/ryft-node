@@ -10,5 +10,17 @@ export const mockPaymentReq: TerminalPaymentRequest = {
     metadata: {
       orderId: 'ORDER-123',
     },
+    paymentSettings: {
+      paymentMethodOptions: {
+        disabled: ['Amex'],
+      },
+      platform: {
+        paymentFees: {
+          processor: {
+            bookTo: 'ac_3fe8398f-8cdb-43a3-9be2-806c4f84c327',
+          },
+        },
+      },
+    },
   },
 };

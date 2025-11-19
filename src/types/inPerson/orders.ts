@@ -7,16 +7,16 @@ export interface InPersonOrderItem {
 }
 
 export interface InPersonOrderShippingAddress {
-  businessName?: string;
+  businessName?: string | null | undefined;
   firstName: string;
   lastName: string;
   lineOne: string;
-  lineTwo?: string;
+  lineTwo?: string | null | undefined;
   city: string;
   country: string;
   postalCode: string;
-  region?: string;
-  deliveryInstructions?: string;
+  region?: string | null | undefined;
+  deliveryInstructions?: string | null | undefined;
 }
 
 export interface InPersonOrderShippingContact {
@@ -33,9 +33,15 @@ export interface InPersonOrderShippingMethod {
 }
 
 export interface InPersonOrderShipping {
-  address: InPersonOrderShippingAddress | null;
-  contact: InPersonOrderShippingContact | null;
-  method: InPersonOrderShippingMethod | null;
+  address?: InPersonOrderShippingAddress | null | undefined;
+  contact?: InPersonOrderShippingContact | null | undefined;
+  method?: InPersonOrderShippingMethod | null | undefined;
+}
+
+export interface InPersonOrderCustomer {
+  email: string;
+  firstName?: string | null | undefined;
+  lastName?: string | null | undefined;
 }
 
 export interface InPersonOrderTrackingItem {
@@ -55,14 +61,15 @@ export interface InPersonOrder {
   taxAmount: number;
   currency: string;
   items: InPersonOrderItem[];
-  shipping: InPersonOrderShipping | null;
-  tracking?: InPersonOrderTracking;
-  metadata?: Record<string, string>;
+  customer: InPersonOrderCustomer;
+  shipping?: InPersonOrderShipping | null | undefined;
+  tracking?: InPersonOrderTracking | null | undefined;
+  metadata?: Record<string, string> | null | undefined;
   createdTimestamp: number;
   lastUpdatedTimestamp: number;
 }
 
 export interface InPersonOrders {
   items: InPersonOrder[];
-  paginationToken?: string;
+  paginationToken?: string | null | undefined;
 }

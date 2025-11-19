@@ -11,7 +11,7 @@ import { makeRequest } from '../utils/http';
 
 /**
  * Manage in-person locations for terminal payments
- * Docs: https://api-reference.ryftpay.com
+ * Docs: https://api-reference.ryftpay.com/#tag/In-Person-Locations
  */
 export class InPersonLocationsClient {
   private readonly path = '/in-person/locations';

@@ -15,6 +15,11 @@ export const mockOrder: InPersonOrder = {
       quantity: 1,
     },
   ],
+  customer: {
+    email: 'john.doe@example.com',
+    firstName: 'John',
+    lastName: 'Doe',
+  },
   shipping: {
     address: {
       businessName: 'Acme Corp',

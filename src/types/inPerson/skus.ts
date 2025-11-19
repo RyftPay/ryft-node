@@ -12,5 +12,5 @@ export interface InPersonProductSku {
 
 export interface InPersonProductSkus {
   items: InPersonProductSku[];
-  paginationToken?: string;
+  paginationToken?: string | null | undefined;
 }

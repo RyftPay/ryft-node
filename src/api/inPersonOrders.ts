@@ -3,7 +3,7 @@ import { makeRequest } from '../utils/http';
 
 /**
  * Manage in-person orders for terminal payments
- * Docs: https://api-reference.ryftpay.com
+ * Docs: https://api-reference.ryftpay.com/#tag/In-Person-Orders
  */
 export class InPersonOrdersClient {
   private readonly path = '/in-person/orders';
