@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+
+This release includes the following:
+ - the SDK now supports the new /in-person API resources
+
 ## 1.2.0
 
 This release includes the following:
