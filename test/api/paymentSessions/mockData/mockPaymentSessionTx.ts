@@ -40,7 +40,13 @@ export const mockPaymentSessionTransaction = {
         },
         card: {
             scheme: "Mastercard",
-            last4: "4242"
+            last4: "4242",
+            binDetails: {
+                issuer: "MASTERCARD",
+                issuerCountry: "GB",
+                fundingType: "Credit",
+                productType: "Consumer"
+            }
         },
         wallet: {
             type: "GooglePay"

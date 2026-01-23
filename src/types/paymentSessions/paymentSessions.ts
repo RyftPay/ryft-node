@@ -60,6 +60,7 @@ export interface PaymentSessionPaymentMethod {
     card?: {
         scheme: string;
         last4: string;
+        binDetails?: CardBinDetails;
     };
     wallet: {
         type: string;
@@ -69,6 +70,13 @@ export interface PaymentSessionPaymentMethod {
         avsResponseCode?: string;
         cvvResponseCode?: string;
     };
+}
+
+export interface CardBinDetails {
+    issuer?: string;
+    issuerCountry?: string;
+    fundingType?: string;
+    productType?: string;
 }
 
 export interface OrderDetails {
