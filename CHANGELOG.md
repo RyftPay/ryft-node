@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0
+
+This release includes the following:
+ - Fixes the logic to derive the prod base url from the secret key
+
 ## 1.4.0
 
 This release includes the following:
