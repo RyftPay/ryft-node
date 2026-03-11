@@ -42,13 +42,18 @@ export interface PaymentSession {
     verifyAccount?: boolean | null | undefined;
     shippingDetails?: ShippingDetails | null | undefined;
     orderDetails?: OrderDetails | null | undefined;
-    paymentSettings?: {
-        paymentMethodOptions: {
-            disabled: string[];
-        };
-    } | null | undefined;
+    paymentSettings?: PaymentSettings | null | undefined;
     createdTimestamp: number;
     lastUpdatedTimestamp: number;
+}
+
+export interface PaymentSettings {
+    paymentMethodOptions?: {
+        disabled: string[];
+    };
+    threeDs?: {
+        challengeIndicator: string;
+    };
 }
 
 export interface PaymentSessionPaymentMethod {

@@ -89,6 +89,9 @@ export const mockCreatePaymentSessionRequest = {
             disabled: [
                 "Amex"
             ]
+        },
+        threeDs: {
+            challengeIndicator: "NoPreference"
         }
     }
 }

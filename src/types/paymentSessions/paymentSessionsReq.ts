@@ -132,9 +132,12 @@ export interface OrderDetailsRequest {
 }
 
 export interface PaymentSettingsRequest {
-    paymentMethodOptions: {
+    paymentMethodOptions?: {
         disabled: string[];
-    }
+    };
+    threeDs?: {
+        challengeIndicator: string;
+    };
 }
 
 export interface CreatePaymentSessionAttemptPaymentRequest {
