@@ -52,6 +52,9 @@ export const mockUpdatePaymentSessionRequest = {
             "disabled": [
                 "Amex"
             ]
+        },
+        "threeDs": {
+            "challengeIndicator": "NoPreference"
         }
     }
 }

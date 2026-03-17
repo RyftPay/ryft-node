@@ -134,6 +134,9 @@ export const mockPaymentSession = {
             disabled: [
                 "Amex"
             ]
+        },
+        threeDs: {
+            challengeIndicator: "NoPreference"
         }
     },
     createdTimestamp: 1470989538,
