@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0
+
+This release includes the following:
+ - Adds support for payment session 3DS configuration via `paymentSettings.threeDs`
+ - Adds missing phone number field to ShippingDetails
+
 ## 1.5.0
 
 This release includes the following:
@@ -35,4 +41,3 @@ This release includes the following:
 ## 1.0.0
 
 Initial Release!
-
