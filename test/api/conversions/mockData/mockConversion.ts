@@ -1,4 +1,4 @@
-import { Conversion } from '../../../../src/types/conversions/conversions';
+import { Conversion } from '../../../../src';
 
 export const mockConversion: Conversion = {
   id: 'con_01FCTS1XMKH9FF43CAFA4CXT3P',

@@ -1,6 +1,8 @@
 export { AccountLinksClient } from "./api/accountLinks";
 export { AccountsClient } from "./api/accounts";
 export { ApplePayClient } from "./api/applePay";
+export { BalancesClient } from "./api/balances";
+export { BalanceTransactionsClient } from "./api/balanceTransactions";
 export { ConversionsClient } from "./api/conversions";
 export { CustomersClient } from "./api/customers";
 export { DisputesClient } from "./api/disputes";
@@ -21,7 +23,9 @@ export { SubscriptionsClient } from "./api/subscriptions";
 export { TransfersClient } from "./api/transfers";
 export { WebhooksClient } from "./api/webhooks";
 export { Config } from "./types/config";
+export { ErrorElement, RyftError, RyftErrorResponse } from "./types/errors";
 export { determineBaseUrl } from "./utils/url";
+export { WebhookSignatureVerifier } from "./utils/webhookSignatureVerifier";
 export { Ryft } from "./client";
 
 export * from "./types/conversions/conversions";

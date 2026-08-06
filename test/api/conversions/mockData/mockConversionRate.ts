@@ -1,4 +1,4 @@
-import { ConversionRate } from '../../../../src/types/conversions/conversions';
+import { ConversionRate } from '../../../../src';
 
 export const mockConversionRate: ConversionRate = {
   sell: {

@@ -1,4 +1,4 @@
-import { CreateConversionRequest } from '../../../../src/types/conversions/req';
+import { CreateConversionRequest } from '../../../../src';
 
 export const mockCreateConversionReq: CreateConversionRequest = {
   sell: {

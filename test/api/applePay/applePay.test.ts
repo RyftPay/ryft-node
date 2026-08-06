@@ -39,7 +39,7 @@ describe('applePay', () => {
             expect(result).toEqual(mockApplePay);
             expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/apple-pay/web-domains', {
                 method: 'POST',
-                headers,
+                headers: defaultHeaders,
                 body: JSON.stringify({ domainName })
             });
         });
@@ -87,7 +87,7 @@ describe('applePay', () => {
             expect(result).toEqual(mockResponse);
             expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/apple-pay/web-domains', {
                 method: 'GET',
-                headers,
+                headers: defaultHeaders,
             });
         });
 
@@ -133,7 +133,7 @@ describe('applePay', () => {
             await expect(client.applePay.listDomains()).rejects.toThrow(RyftError);
             expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/apple-pay/web-domains', {
                 method: 'GET',
-                headers,
+                headers: defaultHeaders,
             });
         });
 
