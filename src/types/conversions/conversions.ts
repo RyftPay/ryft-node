@@ -17,11 +17,20 @@ export interface ConversionFees {
 export interface ConversionSell {
   amount?: number | null | undefined;
   currency: string;
+  /**
+   * The FX fees charged on the sell side. The fee is charged on exactly one
+   * side, so this is mutually exclusive with `buy.fees`.
+   */
+  fees?: ConversionFees | null | undefined;
 }
 
 export interface ConversionBuy {
   amount?: number | null | undefined;
   currency: string;
+  /**
+   * The FX fees charged on the buy side. The fee is charged on exactly one
+   * side, so this is mutually exclusive with `sell.fees`.
+   */
   fees?: ConversionFees | null | undefined;
 }
 
@@ -54,12 +63,21 @@ export interface Conversions {
 export interface ConversionRateSell {
   amount: number;
   currency: string;
+  /**
+   * The FX fees that would be charged on the sell side. The fee is charged on
+   * exactly one side, so this is mutually exclusive with `buy.fees`.
+   */
+  fees?: ConversionFees | null | undefined;
 }
 
 export interface ConversionRateBuy {
   amount: number;
   currency: string;
-  fees: ConversionFees;
+  /**
+   * The FX fees that would be charged on the buy side. The fee is charged on
+   * exactly one side, so this is mutually exclusive with `sell.fees`.
+   */
+  fees?: ConversionFees | null | undefined;
 }
 
 export interface ConversionRate {

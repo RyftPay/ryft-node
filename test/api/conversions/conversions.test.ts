@@ -4,9 +4,13 @@ import { Ryft } from '../../../src';
 import { RyftError } from '../../../src/types/errors';
 import {
   mockConversion,
+  mockConversion_SellSideFees,
   mockInProgressConversion,
 } from './mockData/mockConversion';
-import { mockConversionRate } from './mockData/mockConversionRate';
+import {
+  mockConversionRate,
+  mockConversionRate_SellSideFees,
+} from './mockData/mockConversionRate';
 import {
   mockCreateConversionReq,
   mockCreateConversionReq_FixedSell,
@@ -117,6 +121,22 @@ describe('conversions', () => {
       const result = await client.conversions.get(conversionId);
 
       expect(result).toEqual(mockConversion);
+      expect(global.fetch).toHaveBeenCalledWith(
+        `https://sandbox-api.ryftpay.com/v1/conversions/${conversionId}`,
+        {
+          method: 'GET',
+          headers: defaultHeaders,
+        },
+      );
+    });
+
+    test('success with sell-side fees', async () => {
+      mockJsonResponse(mockConversion_SellSideFees);
+
+      const client = new Ryft({ secretKey: mockSecretKey });
+      const result = await client.conversions.get(conversionId);
+
+      expect(result).toEqual(mockConversion_SellSideFees);
       expect(global.fetch).toHaveBeenCalledWith(
         `https://sandbox-api.ryftpay.com/v1/conversions/${conversionId}`,
         {
@@ -255,6 +275,26 @@ describe('conversions', () => {
       expectedUrl.searchParams.append('amount', '1000');
 
       expect(result).toEqual(mockConversionRate);
+      expect(global.fetch).toHaveBeenCalledWith(expectedUrl.toString(), {
+        method: 'GET',
+        headers: defaultHeaders,
+      });
+    });
+
+    test('success with sell-side fees', async () => {
+      mockJsonResponse(mockConversionRate_SellSideFees);
+
+      const client = new Ryft({ secretKey: mockSecretKey });
+      const result = await client.conversions.getRate('GBP', 'USD', 1000);
+
+      const expectedUrl = new URL(
+        'https://sandbox-api.ryftpay.com/v1/conversions/rate',
+      );
+      expectedUrl.searchParams.append('sellCurrency', 'GBP');
+      expectedUrl.searchParams.append('buyCurrency', 'USD');
+      expectedUrl.searchParams.append('amount', '1000');
+
+      expect(result).toEqual(mockConversionRate_SellSideFees);
       expect(global.fetch).toHaveBeenCalledWith(expectedUrl.toString(), {
         method: 'GET',
         headers: defaultHeaders,
