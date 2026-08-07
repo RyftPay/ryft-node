@@ -8,7 +8,6 @@ import { makeRequest } from '../utils/http';
 
 /**
  * A Conversion represents the exchange of a balance held in one currency for another.
- * Docs: https://api-reference.ryftpay.com/#tag/Conversions
  */
 export class ConversionsClient {
   private readonly path = '/conversions';
