@@ -7,7 +7,7 @@ export const defaultHeaders = {
     'Content-Type': 'application/json',
     'ryft-sdk-name': SDK_NAME,
     'ryft-sdk-version': SDK_VERSION,
-    'User-Agent': `${SDK_NAME}/${SDK_VERSION}`,
+    'User-Agent': `ryft-node-sdk/${SDK_VERSION}`,
 }
 
 export const mockErrorResponse = {
