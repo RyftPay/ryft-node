@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Official Ryft Node.js SDK (`@ryftpay/ryft-sdk` on npm) — a typed client for the Ryft payments REST API. Public open-source repo (MIT). Zero runtime dependencies: HTTP uses native `fetch`, which is why Node >= 18 is required.
 
+**Public repo — no internal details.** Everything here is world-readable: code comments, PR descriptions, commit messages, and docs must describe behaviour purely in terms of the public API. Never reference internal service/repo/class names, internal-only API fields (even to note they're rejected), or backend implementation specifics. Jira ticket numbers (RP-xxx) are fine — they're established practice in this repo's history.
+
 ## Commands
 
 ```bash

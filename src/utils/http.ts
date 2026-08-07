@@ -23,8 +23,8 @@ interface FileRequestOptions {
     extraHeaders?: Record<string, string>;
 }
 
-// Must be a valid RFC 9110 product token: the scoped package name's '@' and '/'
-// are rejected by strict User-Agent parsers (e.g. .NET's HttpRequestHeaders)
+// Must be a valid RFC 9110 product token: strict User-Agent parsers reject
+// the scoped package name's '@' and '/'
 const userAgentProduct = SDK_NAME.replace(/^@/, '').replace(/\//g, '-');
 
 const defaultHeaders = {
