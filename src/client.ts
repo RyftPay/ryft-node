@@ -3,6 +3,7 @@ import { AccountsClient } from './api/accounts'
 import { ApplePayClient } from './api/applePay'
 import { BalancesClient } from './api/balances'
 import { BalanceTransactionsClient } from './api/balanceTransactions'
+import { ConversionsClient } from './api/conversions'
 import { CustomersClient } from './api/customers'
 import { DisputesClient } from './api/disputes'
 import { EventsClient } from './api/events'
@@ -33,6 +34,7 @@ export class Ryft {
   public readonly applePay: ApplePayClient
   public readonly balances: BalancesClient
   public readonly balanceTransactions: BalanceTransactionsClient
+  public readonly conversions: ConversionsClient
   public readonly customers: CustomersClient
   public readonly disputes: DisputesClient
   public readonly events: EventsClient
@@ -73,6 +75,7 @@ export class Ryft {
       this.secretKey,
       this.baseUrl,
     )
+    this.conversions = new ConversionsClient(this.secretKey, this.baseUrl)
     this.customers = new CustomersClient(this.secretKey, this.baseUrl)
     this.disputes = new DisputesClient(this.secretKey, this.baseUrl)
     this.events = new EventsClient(this.secretKey, this.baseUrl)

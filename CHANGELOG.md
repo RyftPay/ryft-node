@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.0
+
+This release includes the following:
+ - Adds support for the new `/conversions` API resource via `ryft.conversions` (create, get, list and rate quotes)
+ - Exports the conversion request/response types from the package entry point
+ - Exports `RyftError`, `WebhookSignatureVerifier`, `BalancesClient` and `BalanceTransactionsClient` from the package entry point
+ - The `User-Agent` header is now a valid RFC 9110 product token (`ryftpay-ryft-sdk/<version>`)
+
 ## 1.6.0
 
 This release includes the following:

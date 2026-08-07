@@ -23,10 +23,14 @@ interface FileRequestOptions {
     extraHeaders?: Record<string, string>;
 }
 
+// Must be a valid RFC 9110 product token: strict User-Agent parsers reject
+// the scoped package name's '@' and '/'
+const userAgentProduct = SDK_NAME.replace(/^@/, '').replace(/\//g, '-');
+
 const defaultHeaders = {
     'ryft-sdk-name': SDK_NAME,
     'ryft-sdk-version': SDK_VERSION,
-    'User-Agent': `${SDK_NAME}/${SDK_VERSION}`,
+    'User-Agent': `${userAgentProduct}/${SDK_VERSION}`,
 }
 
 const supportedMimeTypes = {
