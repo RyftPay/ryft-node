@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       dry-run:
-        description: 'Pack and validate only — nothing is released to npm'
+        description: 'Dry run; pack and validate only — nothing is released to npm'
         type: boolean
         default: false
   release:
