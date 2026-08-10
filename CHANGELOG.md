@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.1
+
+This release includes the following:
+ - Repository housekeeping only — no changes to the published package
+
 ## 1.7.0
 
 This release includes the following:
