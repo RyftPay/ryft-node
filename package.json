@@ -33,7 +33,7 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/RyftPay/ryft-node.git"
+    "url": "git+https://github.com/RyftPay/ryft-node.git"
   },
   "bugs": "https://github.com/RyftPay/ryft-node/issues",
   "publishConfig": {
