@@ -2,6 +2,11 @@ name: Publish to npm
 
 on:
   workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Pack and validate only — nothing is released to npm'
+        type: boolean
+        default: true
   release:
     types: [published]
 
@@ -21,4 +26,4 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm run bundle
-      - run: npm publish
+      - run: npm publish ${{ inputs.dry-run && '--dry-run' || '' }}
