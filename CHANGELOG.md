@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.2
+
+This release includes the following:
+ - `Conversion.sell.amount` is now typed as required — the API always returns it (type-level fix only, no runtime change)
+ - Removes the `fixedSide` field from `CreateConversionRequest` — the API only supports (and defaults to) fixing the sell side, so the field is redundant
+
 ## 1.7.1
 
 This release includes the following:

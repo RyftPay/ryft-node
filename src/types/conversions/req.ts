@@ -16,12 +16,6 @@ export interface CreateConversionRequest {
   termAgreement: boolean;
 
   /**
-   * Which side of the conversion `sell.amount` fixes. Only `Sell` is currently supported,
-   * which is also the default when omitted.
-   */
-  fixedSide?: 'Sell' | null | undefined;
-
-  /**
    * An optional reason describing why the conversion was initiated. Not required but recommended.
    */
   reason?: string | null | undefined;

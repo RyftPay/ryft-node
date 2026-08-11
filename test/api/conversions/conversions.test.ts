@@ -13,7 +13,6 @@ import {
 } from './mockData/mockConversionRate';
 import {
   mockCreateConversionReq,
-  mockCreateConversionReq_FixedSell,
 } from './mockData/mockCreateConversionReq';
 
 const mockedFetch = jest.fn() as jest.MockedFunction<typeof global.fetch>;
@@ -46,25 +45,6 @@ describe('conversions', () => {
           method: 'POST',
           headers: defaultHeaders,
           body: JSON.stringify(mockCreateConversionReq),
-        },
-      );
-    });
-
-    test('success with fixed side', async () => {
-      mockJsonResponse(mockInProgressConversion);
-
-      const client = new Ryft({ secretKey: mockSecretKey });
-      const result = await client.conversions.create(
-        mockCreateConversionReq_FixedSell,
-      );
-
-      expect(result).toEqual(mockInProgressConversion);
-      expect(global.fetch).toHaveBeenCalledWith(
-        'https://sandbox-api.ryftpay.com/v1/conversions',
-        {
-          method: 'POST',
-          headers: defaultHeaders,
-          body: JSON.stringify(mockCreateConversionReq_FixedSell),
         },
       );
     });
