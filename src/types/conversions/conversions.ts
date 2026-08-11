@@ -15,7 +15,7 @@ export interface ConversionFees {
 }
 
 export interface ConversionSell {
-  amount?: number | null | undefined;
+  amount: number;
   currency: string;
   /**
    * The FX fees charged on the sell side. The fee is charged on exactly one

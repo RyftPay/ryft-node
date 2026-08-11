@@ -1,7 +1,7 @@
 import { Conversion } from '../../../../src';
 
 export const mockConversion: Conversion = {
-  id: 'con_01FCTS1XMKH9FF43CAFA4CXT3P',
+  id: 'cv_01FCTS1XMKH9FF43CAFA4CXT3P',
   sell: {
     amount: 1000,
     currency: 'GBP',
@@ -34,7 +34,7 @@ export const mockConversion: Conversion = {
 };
 
 export const mockConversion_SellSideFees: Conversion = {
-  id: 'con_01FCTS1XMKH9FF43CAFA4CXT3P',
+  id: 'cv_01FCTS1XMKH9FF43CAFA4CXT3P',
   sell: {
     amount: 1000,
     currency: 'GBP',
@@ -61,7 +61,7 @@ export const mockConversion_SellSideFees: Conversion = {
 };
 
 export const mockInProgressConversion: Conversion = {
-  id: 'con_01FCTS1XMKH9FF43CAFA4CXT3P',
+  id: 'cv_01FCTS1XMKH9FF43CAFA4CXT3P',
   sell: {
     amount: 1000,
     currency: 'GBP',
