@@ -11,6 +11,7 @@ export interface PlatformFee {
 
 export interface PlatformFees {
     items: PlatformFee[]
+    paginationToken?: string | null | undefined
 }
 
 export interface PlatformFeeRefund {
@@ -26,4 +27,5 @@ export interface PlatformFeeRefund {
 
 export interface PlatformFeeRefunds {
     items: PlatformFeeRefund[]
+    paginationToken?: string | null | undefined
 }
