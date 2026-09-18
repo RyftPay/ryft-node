@@ -13,7 +13,7 @@ export class FeesClient {
         private readonly baseUrl: string
     ) { }
 
-    async list(ascending?: boolean, limit?: number): Promise<PlatformFees> {
+    async list(ascending?: boolean, limit?: number, startsAfter?: string): Promise<PlatformFees> {
         return makeRequest({
             path: this.path,
             method: 'GET',
@@ -22,6 +22,7 @@ export class FeesClient {
             queryParams: {
                 ascending,
                 limit,
+                startsAfter,
             },
         })
     }
@@ -35,12 +36,22 @@ export class FeesClient {
         })
     }
 
-    async getRefunds(id: string): Promise<PlatformFeeRefunds> {
+    async getRefunds(
+        id: string,
+        ascending?: boolean,
+        limit?: number,
+        startsAfter?: string
+    ): Promise<PlatformFeeRefunds> {
         return makeRequest({
             path: `${this.path}/${id}/refunds`,
             method: 'GET',
             secretKey: this.secretKey,
             baseUrl: this.baseUrl,
+            queryParams: {
+                ascending,
+                limit,
+                startsAfter,
+            },
         })
     }
 }

@@ -8,6 +8,7 @@ import { mockPlatformFeeRefund } from './mockData/mockPlatformFeeRefund';
 const mockedFetch = jest.fn() as jest.MockedFunction<typeof global.fetch>;
 
 const feeId = 'pf_01FCTS1XMKH9FF43CAFA4CXT3P';
+const refundId = 'fr_01FM9XMMV1MYDG6NGMHPDE065N_01FM9XNFXDYXAT0BJN5BBN794B';
 
 describe('platformFees', () => {
 
@@ -56,9 +57,10 @@ describe('platformFees', () => {
             const expectedUrl = new URL('https://sandbox-api.ryftpay.com/v1/platform-fees');
             expectedUrl.searchParams.append('ascending', 'true');
             expectedUrl.searchParams.append('limit', '40');
+            expectedUrl.searchParams.append('startsAfter', feeId);
 
             const client = new Ryft({ secretKey: mockSecretKey });
-            const result = await client.platformFees.list(true, 40);
+            const result = await client.platformFees.list(true, 40, feeId);
 
             expect(result).toEqual(mockResponse);
             expect(global.fetch).toHaveBeenCalledWith(expectedUrl.toString(), {
@@ -146,6 +148,35 @@ describe('platformFees', () => {
 
             expect(result).toEqual(mockResponse);
             expect(global.fetch).toHaveBeenCalledWith(`https://sandbox-api.ryftpay.com/v1/platform-fees/${feeId}/refunds`, {
+                method: 'GET',
+                headers: defaultHeaders,
+            });
+        });
+
+        test('success with custom params', async () => {
+            const mockResponse = {
+                items: [mockPlatformFeeRefund],
+                paginationToken: refundId,
+            };
+
+            mockedFetch.mockImplementation(async () =>
+                Promise.resolve({
+                    json: async () => mockResponse,
+                    ok: true,
+                    status: 200,
+                } as Response)
+            );
+
+            const expectedUrl = new URL(`https://sandbox-api.ryftpay.com/v1/platform-fees/${feeId}/refunds`);
+            expectedUrl.searchParams.append('ascending', 'false');
+            expectedUrl.searchParams.append('limit', '20');
+            expectedUrl.searchParams.append('startsAfter', refundId);
+
+            const client = new Ryft({ secretKey: mockSecretKey });
+            const result = await client.platformFees.getRefunds(feeId, false, 20, refundId);
+
+            expect(result).toEqual(mockResponse);
+            expect(global.fetch).toHaveBeenCalledWith(expectedUrl.toString(), {
                 method: 'GET',
                 headers: defaultHeaders,
             });
