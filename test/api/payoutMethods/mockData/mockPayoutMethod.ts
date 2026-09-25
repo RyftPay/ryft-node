@@ -22,5 +22,9 @@ export const mockPayoutMethod = {
         }
     },
     "createdTimestamp": 1470989538,
-    "lastUpdatedTimestamp": 1470989538
+    "lastUpdatedTimestamp": 1470989538,
+    "verification": {
+        "status": "Verified",
+        "nameOnAccount": "J Smith"
+    }
 }
