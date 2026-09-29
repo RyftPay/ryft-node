@@ -30,3 +30,4 @@ export { Ryft } from "./client";
 
 export * from "./types/conversions/conversions";
 export * from "./types/conversions/req";
+export * from "./types/payoutMethods/payoutMethod";
