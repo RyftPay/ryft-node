@@ -91,7 +91,8 @@ export const mockCreatePaymentSessionRequest = {
             ]
         },
         threeDs: {
-            challengeIndicator: "NoPreference"
+            challengeIndicator: "NoPreference",
+            policy: "Required"
         }
     }
 }
