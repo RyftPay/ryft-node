@@ -52,7 +52,8 @@ export interface PaymentSettings {
         disabled: string[];
     };
     threeDs?: {
-        challengeIndicator: string;
+        challengeIndicator?: string;
+        policy?: string;
     };
 }
 

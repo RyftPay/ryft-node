@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.9.0
+
+This release includes the following:
+ - Adds `policy` to `paymentSettings.threeDs` on the payment session request and response types
+
 ## 1.8.0
 
 This release includes the following:

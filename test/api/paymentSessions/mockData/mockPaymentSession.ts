@@ -136,7 +136,8 @@ export const mockPaymentSession = {
             ]
         },
         threeDs: {
-            challengeIndicator: "NoPreference"
+            challengeIndicator: "NoPreference",
+            policy: "Required"
         }
     },
     createdTimestamp: 1470989538,
