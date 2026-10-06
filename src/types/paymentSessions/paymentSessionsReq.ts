@@ -136,7 +136,8 @@ export interface PaymentSettingsRequest {
         disabled: string[];
     };
     threeDs?: {
-        challengeIndicator: string;
+        challengeIndicator?: string;
+        policy?: string;
     };
 }
 

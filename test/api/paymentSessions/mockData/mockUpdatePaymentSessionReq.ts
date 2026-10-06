@@ -54,7 +54,8 @@ export const mockUpdatePaymentSessionRequest = {
             ]
         },
         "threeDs": {
-            "challengeIndicator": "NoPreference"
+            "challengeIndicator": "NoPreference",
+            "policy": "Required"
         }
     }
 }
