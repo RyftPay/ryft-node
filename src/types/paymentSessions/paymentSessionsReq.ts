@@ -38,6 +38,7 @@ export interface CreatePaymentSessionRequest {
     metadata?: Record<string, string>;
     returnUrl?: string;
     attemptPayment?: CreatePaymentSessionAttemptPaymentRequest;
+    authenticationParameters?: AuthenticationParametersRequest;
     paymentSettings?: PaymentSettingsRequest;
 }
 
@@ -146,4 +147,13 @@ export interface CreatePaymentSessionAttemptPaymentRequest {
         id: string;
         cvc?: string;
     };
+}
+
+export interface AuthenticationParametersRequest {
+    eci: string;
+    authenticationValue?: string;
+    protocolVersion?: string;
+    threeDsServerTransactionId?: string;
+    acsTransactionId?: string;
+    dsTransactionId?: string;
 }

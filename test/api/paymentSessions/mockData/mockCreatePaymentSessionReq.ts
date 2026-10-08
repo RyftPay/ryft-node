@@ -84,6 +84,14 @@ export const mockCreatePaymentSessionRequest = {
             cvc: "100"
         }
     },
+    authenticationParameters: {
+        eci: "05",
+        authenticationValue: "AAABBEg0VhI0VniQEjRWAAAAAAA=",
+        protocolVersion: "2.2.0",
+        threeDsServerTransactionId: "8a880dc0-d2d2-4067-bcb1-b08d1690b26e",
+        acsTransactionId: "13c701a3-5a88-4c45-89e9-ef65e50a8bf9",
+        dsTransactionId: "f25084f0-5b16-4c0a-ae5d-b24808a95e4b"
+    },
     paymentSettings: {
         paymentMethodOptions: {
             disabled: [
