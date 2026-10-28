@@ -1,6 +1,9 @@
 import { beforeEach, describe, expect, jest, test } from '@jest/globals';
 import { Ryft } from '../../../src';
-import { mockCreatePaymentSessionRequest } from './mockData/mockCreatePaymentSessionReq';
+import {
+    mockCreatePaymentSessionRequest,
+    mockCreatePaymentSessionRequest_WithWalletNetworkToken,
+} from './mockData/mockCreatePaymentSessionReq';
 import { defaultHeaders, mockErrorResponse, mockSecretKey } from '../mockData';
 import { RyftError } from '../../../src/types/errors';
 import { mockUpdatePaymentSessionRequest } from './mockData/mockUpdatePaymentSessionReq';
@@ -25,12 +28,15 @@ import {
 import {
     mockAttemptPaymentRequest_With3DS,
     mockAttemptPaymentRequest_WithApplePayToken,
+    mockAttemptPaymentRequest_WithAuthenticationParameters,
     mockAttemptPaymentRequest_WithBillingAddressIncluded,
     mockAttemptPaymentRequest_WithCard,
     mockAttemptPaymentRequest_WithCardAndSave,
     mockAttemptPaymentRequest_WithCustomerIncluded,
     mockAttemptPaymentRequest_WithGooglePayToken,
     mockAttemptPaymentRequest_WithSavedPaymentMethod,
+    mockAttemptPaymentRequest_WithWalletNetworkToken,
+    mockAttemptPaymentRequest_WithWalletNetworkTokenAndEci,
 } from './mockData/mockAttemptPaymentReq';
 import { mockPaymentSession } from './mockData/mockPaymentSession';
 
@@ -64,6 +70,26 @@ describe('paymentSessions', () => {
                 method: 'POST',
                 headers: defaultHeaders,
                 body: JSON.stringify(mockCreatePaymentSessionRequest),
+            });
+        });
+
+        test('success - with wallet network token', async () => {
+            mockedFetch.mockImplementation(async () =>
+                Promise.resolve({
+                    json: async () => mockPaymentSession,
+                    ok: true,
+                    status: 200,
+                } as Response)
+            );
+
+            const client = new Ryft({ secretKey: mockSecretKey });
+            const result = await client.paymentSessions.create(mockCreatePaymentSessionRequest_WithWalletNetworkToken);
+
+            expect(result).toEqual(mockPaymentSession);
+            expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/payment-sessions', {
+                method: 'POST',
+                headers: defaultHeaders,
+                body: JSON.stringify(mockCreatePaymentSessionRequest_WithWalletNetworkToken),
             });
         });
 
@@ -408,6 +434,66 @@ describe('paymentSessions', () => {
                 method: 'POST',
                 headers: defaultHeaders,
                 body: JSON.stringify(mockAttemptPaymentRequest_With3DS),
+            });
+        });
+
+        test('success - with authentication parameters', async () => {
+            mockedFetch.mockImplementation(async () =>
+                Promise.resolve({
+                    json: async () => mockPaymentSessionTransaction,
+                    ok: true,
+                    status: 200,
+                } as Response)
+            );
+
+            const client = new Ryft({ secretKey: mockSecretKey });
+            const result = await client.paymentSessions.attemptPayment(mockAttemptPaymentRequest_WithAuthenticationParameters);
+
+            expect(result).toEqual(mockPaymentSessionTransaction);
+            expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/payment-sessions/attempt-payment', {
+                method: 'POST',
+                headers: defaultHeaders,
+                body: JSON.stringify(mockAttemptPaymentRequest_WithAuthenticationParameters),
+            });
+        });
+
+        test('success - with wallet network token without eci', async () => {
+            mockedFetch.mockImplementation(async () =>
+                Promise.resolve({
+                    json: async () => mockPaymentSessionTransaction,
+                    ok: true,
+                    status: 200,
+                } as Response)
+            );
+
+            const client = new Ryft({ secretKey: mockSecretKey });
+            const result = await client.paymentSessions.attemptPayment(mockAttemptPaymentRequest_WithWalletNetworkToken);
+
+            expect(result).toEqual(mockPaymentSessionTransaction);
+            expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/payment-sessions/attempt-payment', {
+                method: 'POST',
+                headers: defaultHeaders,
+                body: JSON.stringify(mockAttemptPaymentRequest_WithWalletNetworkToken),
+            });
+        });
+
+        test('success - with wallet network token and eci', async () => {
+            mockedFetch.mockImplementation(async () =>
+                Promise.resolve({
+                    json: async () => mockPaymentSessionTransaction,
+                    ok: true,
+                    status: 200,
+                } as Response)
+            );
+
+            const client = new Ryft({ secretKey: mockSecretKey });
+            const result = await client.paymentSessions.attemptPayment(mockAttemptPaymentRequest_WithWalletNetworkTokenAndEci);
+
+            expect(result).toEqual(mockPaymentSessionTransaction);
+            expect(global.fetch).toHaveBeenCalledWith('https://sandbox-api.ryftpay.com/v1/payment-sessions/attempt-payment', {
+                method: 'POST',
+                headers: defaultHeaders,
+                body: JSON.stringify(mockAttemptPaymentRequest_WithWalletNetworkTokenAndEci),
             });
         });
 

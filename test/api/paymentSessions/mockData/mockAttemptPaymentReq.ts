@@ -1,3 +1,5 @@
+import { AttemptPaymentSessionRequest } from "../../../../src/types/paymentSessions/paymentSessionsReq";
+
 export const mockAttemptPaymentRequest_WithCard = {
     "clientSecret": "ps_01FCTS1XMKH9FF43CAFA4CXT3P_secret_b83f2653-06d7-44a9-a548-5825e8186004",
     "cardDetails": {
@@ -95,5 +97,51 @@ export const mockAttemptPaymentRequest_With3DS = {
             "timeZoneOffset": -120,
             "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
         }
+    }
+}
+
+export const mockAttemptPaymentRequest_WithAuthenticationParameters: AttemptPaymentSessionRequest = {
+    "clientSecret": "ps_01FCTS1XMKH9FF43CAFA4CXT3P_secret_b83f2653-06d7-44a9-a548-5825e8186004",
+    "cardDetails": {
+        "number": "4444333322221111",
+        "expiryMonth": "10",
+        "expiryYear": "2024",
+        "cvc": "100"
+    },
+    "authenticationParameters": {
+        "eci": "05",
+        "authenticationValue": "AAABBEg0VhI0VniQEjRWAAAAAAA=",
+        "protocolVersion": "2.2.0",
+        "threeDsServerTransactionId": "8a880dc0-d2d2-4067-bcb1-b08d1690b26e",
+        "acsTransactionId": "13c701a3-5a88-4c45-89e9-ef65e50a8bf9",
+        "dsTransactionId": "f25084f0-5b16-4c0a-ae5d-b24808a95e4b"
+    }
+}
+
+export const mockAttemptPaymentRequest_WithWalletNetworkToken: AttemptPaymentSessionRequest = {
+    "clientSecret": "ps_01FCTS1XMKH9FF43CAFA4CXT3P_secret_b83f2653-06d7-44a9-a548-5825e8186004",
+    "walletNetworkToken": {
+        "number": "4895370017256311",
+        "expiryMonth": "10",
+        "expiryYear": "2030",
+        "walletType": "ApplePay"
+    },
+    "authenticationParameters": {
+        "authenticationValue": "AgAAAAAABk4DWZ4C28yUQAAAAAA="
+    }
+}
+
+export const mockAttemptPaymentRequest_WithWalletNetworkTokenAndEci: AttemptPaymentSessionRequest = {
+    "clientSecret": "ps_01FCTS1XMKH9FF43CAFA4CXT3P_secret_b83f2653-06d7-44a9-a548-5825e8186004",
+    "walletNetworkToken": {
+        "number": "4895370017256311",
+        "expiryMonth": "10",
+        "expiryYear": "2030",
+        "name": "Fox Mulder",
+        "walletType": "GooglePay"
+    },
+    "authenticationParameters": {
+        "eci": "05",
+        "authenticationValue": "AgAAAAAABk4DWZ4C28yUQAAAAAA="
     }
 }
