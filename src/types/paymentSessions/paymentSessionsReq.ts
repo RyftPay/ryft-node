@@ -39,8 +39,7 @@ export interface CreatePaymentSessionRequest {
     returnUrl?: string;
     attemptPayment?: CreatePaymentSessionAttemptPaymentRequest;
     /**
-     * The result of 3DS performed with your own 3DS server (MPI), or the cryptogram for
-     * `attemptPayment.walletNetworkToken`. Only used with `attemptPayment`.
+     * The cryptogram for `attemptPayment.walletNetworkToken`.
      */
     authenticationParameters?: AuthenticationParametersRequest;
     paymentSettings?: PaymentSettingsRequest;
