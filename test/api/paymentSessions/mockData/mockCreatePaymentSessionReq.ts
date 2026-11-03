@@ -1,3 +1,5 @@
+import { CreatePaymentSessionRequest } from "../../../../src/types/paymentSessions/paymentSessionsReq";
+
 export const mockCreatePaymentSessionRequest = {
     amount: 500,
     currency: "GBP",
@@ -94,5 +96,24 @@ export const mockCreatePaymentSessionRequest = {
             challengeIndicator: "NoPreference",
             policy: "Required"
         }
+    }
+}
+
+export const mockCreatePaymentSessionRequest_WithWalletNetworkToken: CreatePaymentSessionRequest = {
+    amount: 500,
+    currency: "GBP",
+    customerEmail: "example@mail.com",
+    paymentType: "Standard",
+    attemptPayment: {
+        walletNetworkToken: {
+            number: "4895370017256311",
+            expiryMonth: "10",
+            expiryYear: "2030",
+            name: "Fox Mulder",
+            walletType: "ApplePay"
+        }
+    },
+    authenticationParameters: {
+        authenticationValue: "AgAAAAAABk4DWZ4C28yUQAAAAAA="
     }
 }

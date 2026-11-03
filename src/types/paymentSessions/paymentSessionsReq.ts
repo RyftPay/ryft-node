@@ -38,6 +38,7 @@ export interface CreatePaymentSessionRequest {
     metadata?: Record<string, string>;
     returnUrl?: string;
     attemptPayment?: CreatePaymentSessionAttemptPaymentRequest;
+    authenticationParameters?: AuthenticationParametersRequest;
     paymentSettings?: PaymentSettingsRequest;
 }
 
@@ -93,7 +94,9 @@ export interface AttemptPaymentSessionRequest {
             timeZoneOffset: number;
             userAgent: string;
         }
-    }
+    };
+    walletNetworkToken?: WalletNetworkTokenRequest;
+    authenticationParameters?: AuthenticationParametersRequest;
 }
 
 export interface ContinuePaymentSessionRequest {
@@ -142,8 +145,26 @@ export interface PaymentSettingsRequest {
 }
 
 export interface CreatePaymentSessionAttemptPaymentRequest {
-    paymentMethod: {
+    paymentMethod?: {
         id: string;
         cvc?: string;
     };
+    walletNetworkToken?: WalletNetworkTokenRequest;
+}
+
+export interface AuthenticationParametersRequest {
+    eci?: string;
+    authenticationValue?: string;
+    protocolVersion?: string;
+    threeDsServerTransactionId?: string;
+    acsTransactionId?: string;
+    dsTransactionId?: string;
+}
+
+export interface WalletNetworkTokenRequest {
+    number: string;
+    expiryMonth: string;
+    expiryYear: string;
+    name?: string;
+    walletType: "ApplePay" | "GooglePay";
 }
