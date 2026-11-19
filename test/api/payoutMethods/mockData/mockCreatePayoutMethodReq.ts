@@ -13,7 +13,8 @@ export const mockCreatePayoutMethodRequest_GBPBankAccount = {
             "country": "GB",
             "postalCode": "M1 1AA"
         }
-    }
+    },
+    "default": true
 }
 
 export const mockCreatePayoutMethodRequest_EURBankAccount = {

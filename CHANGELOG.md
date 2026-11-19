@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.12.0
+
+This release includes the following:
+ - Adds `default` to `PayoutMethod`, `CreatePayoutMethodRequest` and `UpdatePayoutMethodRequest`, for nominating the payout method that funds are automatically converted into. Only `true` is accepted; nominating a different payout method replaces the existing default
+ - Adds `triggerType` (`ConversionTriggerType`: `Manual` or `Automatic`) to `Conversion`, to distinguish conversions created automatically by Ryft from those requested manually. `reason` and `createdBy` are not set for automatic conversions
+
 ## 1.11.0
 
 This release includes the following:

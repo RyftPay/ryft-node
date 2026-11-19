@@ -23,6 +23,7 @@ export const mockConversion: Conversion = {
   },
   rate: 1.247,
   status: 'Settled',
+  triggerType: 'Manual',
   reason: 'Converting GBP takings to pay USD suppliers',
   estimatedSettlementDate: '2024-03-15',
   settledTimestamp: 1470989600,
