@@ -1,5 +1,6 @@
 export const mockUpdatePayoutMethodRequest = {
     "displayName": "string",
+    "default": true,
     "bankAccount": {
         "bankIdType": "SortCode",
         "bankId": "string",

@@ -26,5 +26,6 @@ export const mockPayoutMethod = {
     "verification": {
         "status": "Verified",
         "nameOnAccount": "J Smith"
-    }
+    },
+    "default": true
 }

@@ -33,4 +33,5 @@ export interface PayoutMethod {
     createdTimestamp: number;
     lastUpdatedTimestamp: number;
     verification: PayoutMethodVerification;
+    default?: boolean | null | undefined;
 }

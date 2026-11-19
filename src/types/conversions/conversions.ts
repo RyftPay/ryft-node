@@ -1,5 +1,7 @@
 export type ConversionStatus = 'InProgress' | 'Settled';
 
+export type ConversionTriggerType = 'Manual' | 'Automatic';
+
 export interface ConversionFee {
   amount: number;
 }
@@ -45,6 +47,13 @@ export interface Conversion {
   buy: ConversionBuy;
   rate?: number | null | undefined;
   status: ConversionStatus;
+  /**
+   * How the conversion was created: `Manual` if requested via the API or the
+   * portal, `Automatic` if created by Ryft to convert available funds into the
+   * currency of the account's default payout method. `reason` and `createdBy`
+   * are not set for automatic conversions.
+   */
+  triggerType?: ConversionTriggerType | null | undefined;
   reason?: string | null | undefined;
   /**
    * The date the converted funds are expected to settle, in `yyyy-MM-dd` format.

@@ -6,11 +6,13 @@ export interface CreatePayoutMethodRequest {
     currency: string;
     country: string;
     bankAccount: BankAccountRequest;
+    default?: boolean | null | undefined;
 }
 
 export interface UpdatePayoutMethodRequest {
     displayName?: string | null | undefined;
     bankAccount: BankAccountRequest;
+    default?: boolean | null | undefined;
 }
 
 export interface BankAccountRequest {
