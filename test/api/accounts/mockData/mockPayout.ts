@@ -22,6 +22,13 @@ export const mockPayout = {
         code: "invalid_payout_method",
         description: "Bank account details are incorrect - please update your details and try again"
     },
+    fee: {
+        amount: 50
+    },
+    reversalDetail: {
+        payoutReversed: true,
+        feeReversed: true
+    },
     payoutCalculation: {
         paymentsCapturedAmount: 10000,
         paymentsRefundedAmount: 50,

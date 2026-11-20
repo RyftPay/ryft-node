@@ -3,8 +3,10 @@
 ## 1.12.0
 
 This release includes the following:
- - Adds `failureDetail` to the payout types (payouts and account payouts), with a `code` (`invalid_payout_method`, `invalid_account_address` or `unknown_error`; new codes may be added) and a `description` explaining why the payout failed
+ - Adds `failureDetail` to the payout types (payouts and account payouts), with a `code` and a `description` explaining why the payout failed or was returned
  - Deprecates `failureReason` on the payout types. Use `failureDetail` instead
+ - Adds `fee` to the payout types, the fee charged for the payout. Absent when the payout has no fee
+ - Adds `reversalDetail` to the payout types, with `payoutReversed` (whether the payout's funds were returned to the balance) and `feeReversed` (whether the fee was refunded; absent when the payout has no fee)
 
 ## 1.11.0
 

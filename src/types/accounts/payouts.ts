@@ -1,4 +1,4 @@
-import { FailureDetail } from "../payouts/payouts";
+import { FailureDetail, PayoutFee, PayoutReversalDetail } from "../payouts/payouts";
 
 export interface Payouts {
     payouts: Payout[];
@@ -32,6 +32,8 @@ export interface Payout {
     scheduledTimestamp: number;
     completedTimestamp?: number | null | undefined;
     metadata?: Record<string, string> | null | undefined;
+    fee?: PayoutFee | null | undefined;
+    reversalDetail?: PayoutReversalDetail | null | undefined;
 }
 
 interface PayoutCalculation {

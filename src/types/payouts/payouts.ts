@@ -8,9 +8,17 @@ export type PayoutMethodScheme =
     "SepaInstant"
 
 export interface FailureDetail {
-    /** `invalid_payout_method`, `invalid_account_address` or `unknown_error`. New codes may be added. */
     code: string;
     description: string;
+}
+
+export interface PayoutFee {
+    amount: number;
+}
+
+export interface PayoutReversalDetail {
+    payoutReversed: boolean;
+    feeReversed?: boolean | null | undefined;
 }
 
 export interface Payouts {
@@ -80,4 +88,6 @@ export interface Payout {
     scheduledTimestamp: number
     completedTimestamp?: number | null | undefined;
     metadata?: Record<string, string> | null | undefined;
+    fee?: PayoutFee | null | undefined;
+    reversalDetail?: PayoutReversalDetail | null | undefined;
 }
