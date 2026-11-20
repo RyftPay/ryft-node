@@ -7,6 +7,12 @@ export type PayoutMethodScheme =
     "Sepa" |
     "SepaInstant"
 
+export interface FailureDetail {
+    /** `invalid_payout_method`, `invalid_account_address` or `unknown_error`. New codes may be added. */
+    code: string;
+    description: string;
+}
+
 export interface Payouts {
     items: Payout[];
      paginationToken?: string | null | undefined;
@@ -30,7 +36,9 @@ export interface Payout {
             last4: string
         }
     } | null | undefined;
+    /** @deprecated Use `failureDetail` instead, which gives the specific reason the payout failed. */
     failureReason?: string | null | undefined;
+    failureDetail?: FailureDetail | null | undefined;
     payoutCalculation: {
         paymentsCapturedAmount: number;
         paymentsRefundedAmount: number;

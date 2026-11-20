@@ -1,3 +1,5 @@
+import { FailureDetail } from "../payouts/payouts";
+
 export interface Payouts {
     payouts: Payout[];
     paginationToken?: string | null | undefined;
@@ -21,7 +23,9 @@ export interface Payout {
             last4: string
         }
     } | null | undefined;
+    /** @deprecated Use `failureDetail` instead, which gives the specific reason the payout failed. */
     failureReason?: string | null | undefined;
+    failureDetail?: FailureDetail | null | undefined;
     payoutCalculation?: PayoutCalculation | null | undefined;
     scheme?: string | null | undefined;
     createdTimestamp: number;
